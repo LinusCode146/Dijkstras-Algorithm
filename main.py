@@ -62,14 +62,17 @@ if __name__ == '__main__':
     destination = 'd'#TODO: and your endpoint here
     path_construction = True
     information = get_distance(start, destination, struct, path_construction = path_construction) #! If you dont want to have the reconstructed path, said the 'way' parameter to false
-    try:
-        information = information - 1 + 1
-        pprint(information)
-    except:
-        distance = information['distance']
-        path = information['path']
-        pprint(distance)
-        pprint(' - '.join(path))
+    match information:
+        case int():
+            information = information - 1 + 1
+            pprint(information)
+        case dict():
+                distance = information['distance']
+                path = information['path']
+                pprint(distance)
+                pprint(' - '.join(path))
+        case _:
+            print("Something has caused an error")
 
 
 
