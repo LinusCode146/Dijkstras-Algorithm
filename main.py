@@ -64,7 +64,6 @@ if __name__ == '__main__':
     information = get_distance(start, destination, struct, path_construction = path_construction) #! If you dont want to have the reconstructed path, said the 'way' parameter to false
     match information:
         case int():
-            information = information - 1 + 1
             pprint(information)
         case dict():
                 distance = information['distance']
